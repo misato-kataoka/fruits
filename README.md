@@ -13,6 +13,8 @@
 - php artisan migrate
 - php artisan db:seed
 
+## ER図
+![Image](https://github.com/user-attachments/assets/5876df46-97dd-4cc2-a146-8838ae326426)
 
 ## 使用技術  
 -PHP 8.0  
