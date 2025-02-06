@@ -1,3 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1500px;
+    margin: auto;
+}
+
 .header {
     background: #fff;
 }
@@ -5,7 +17,96 @@
 .header__inner {
     margin: 0 auto;
     padding: 20px 15px;
-    max-width: 1230px;
+    max-width: 1500px;
+}
+
+.header__logo {
+    color: #f5c800;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+.content {
+    display: flex;
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.sidebar {
+    width: 100%;
+    max-width: 250px;
+    padding: 20px;
+    top: 10px;
+    height: 100vh;/*高さ100%*/
+    margin-right: 20px;
+    overflow-y: auto;
+}
+
+.search-bar input[type="text"] {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    width: 200px;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.search-bar button {
+    background-color: #ffcc00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 200px;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.search-bar button:hover {
+    background-color: #ffa929;
+}
+
+.sort-options label {
+    padding-top: 25px; /*検索ボタンからラベルまでの余白*/
+    padding-bottom: 5px; /*ラベルから選択肢までの余白*/
+    display: block; /* ラベルをブロック要素にして、選択肢の上に配置 */
+    margin-bottom: 5px; /* ラベルと選択肢の間にマージンを追加 */
+    font-weight: bold; /* ラベルを太字に */
+}
+
+.sort-options select {
+    margin-bottom: 20px;
+    width: 200px;
+    padding: 10px ; /*内側の余白*/
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+
+
+/*body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    background: #fff;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1700px;
 }
 
 .header__logo {
@@ -17,10 +118,12 @@
 
 .search-container {
     display: flex;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .sidebar {
-    width: 150px;
+    width: 180px;
     padding: 20px;
     position: sticky;
     top: 0;
@@ -38,4 +141,4 @@
 
 .sort-options {
     margin-bottom: 20px;
-}
+}*/

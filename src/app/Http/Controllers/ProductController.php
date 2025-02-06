@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Season;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class ProductController extends Controller
 {
@@ -31,20 +33,32 @@ class ProductController extends Controller
         return view('products.index', compact('products'));
     }
 
-    public function show($id)
+    public function search(Request $request)
     {
-        $product = Product::findOrFail($id);
-        return view('products.show', compact('product'));
+        $query = $request->input('query'); // 検索クエリを取得
+        $products = Product::where('name', 'LIKE', '%' . $query . '%')->get(); // 商品を検索
+
+        return view('products.show', compact('products')); // 検索結果をビューに渡す
     }
 
-    public function register()
+    public function show($id)
     {
+        $product = Product::with('seasons')->findOrFail($id);
+        return view('detail', compact('product'));
+    }
+
+    public function create(Request $request)
+    {
+        if ($request->has('back')) {
+            return redirect('/products');
+        }
         return view('products.register');
+
     }
 
     public function store(ProductRequest $request)
     {
-        // 商品登録ロジック
+        // 商品登録
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
@@ -64,7 +78,7 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, $id)
     {
-        // 商品更新ロジック
+        // 商品更新
         $product = Product::findOrFail($id);
         $product->name = $request->name;
         $product->price = $request->price;

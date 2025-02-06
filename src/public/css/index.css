@@ -1,13 +1,119 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 20px;
+.add-product {
+    text-align: right;
+    margin-top: 20px;
 }
 
-.container {
+.create-btn {
+    border: none;
+    background-color: #ffa929;
+    color: #4b4b4b;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 130px;
+    padding: 10px 15px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;/*スムーズに色が変わるトランジション効果 */
+}
+
+.create-btn:hover {
+    background-color: #ffcc00;
+}
+
+.sort-options {
+    margin-bottom: 20px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;/* カードを折り返す */
+    justify-content: flex-start; /*左寄せ*/
+    max-width: 1800px;/* 最大幅 */
+    margin: auto;/* 中央配置 */
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);/* 3等分にし、間隔を考慮 */
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;/* 垂直方向の中央揃え */
+}
+
+.product-name {
+    text-align: left;
+}
+
+.product-price {
+    text-align: right;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.pagination button,
+.pagination a {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination button:hover,
+.pagination a:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination .active {
+    background-color: #ffcc00;
+    /* アクティブなページ番号の色 */
+    color: white;
+    border: 1px solid #ffcc00;
+    /* アクティブなページ番号のボーダー色 */
+}
+
+.pagination .disabled {
+    color: #ccc;
+    /* 無効なボタンの色 */
+    cursor: not-allowed;
+}
+
+.pagination .prev,
+.pagination .next {
+    font-weight: bold;
+}
+
+
+/*.container {
     max-width: 1700px;
     margin: auto;
+    display: flex;
 }
 
 .add-product {
@@ -49,8 +155,9 @@ body {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
     gap: 10px;
+    padding: 20px;
 }
 
 .product-card {
@@ -120,3 +227,4 @@ body {
 .pagination .next {
     font-weight: bold;
 }
+*/
