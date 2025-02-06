@@ -14,3 +14,28 @@
     font-weight: bold;
     font-size: 24px;
 }
+
+.search-container {
+    display: flex;
+}
+
+.sidebar {
+    width: 150px;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.sort-options {
+    margin-bottom: 20px;
+}

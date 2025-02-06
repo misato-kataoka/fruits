@@ -1,2 +1,3 @@
 docker/mysql/data/*
+!/storage/fruits-img/  
 !.gitkeep

@@ -19,8 +19,10 @@
     @foreach($products as $product)
     <div class="product-card" onclick="location.href='/products/{{ $product->id }}'">
         <img src="{{ asset('storage/fruits-img/' . $product->image) }}" alt="{{ $product->name }}">
-        <h3>{{ $product->name }}</h3>
-        <p>¥{{ number_format($product->price) }}</p>
+        <div class="product-info">
+            <label class="product-name">{{ $product->name }}</label>
+            <label class="product-price">¥{{ number_format($product->price) }}</label>
+        </div>
     </div>
     @endforeach
     @if($products->isEmpty())
