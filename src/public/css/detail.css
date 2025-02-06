@@ -39,7 +39,29 @@ body {
     height: auto;
     border-radius: 8px;
     margin-bottom: 20px;
-    margin-right: 20px;
+    margin-right: 30px;
+}
+
+.file-input {
+    display: none;
+    /* デフォルトのファイル入力を非表示にする */
+}
+
+.file-selection {
+    margin-top: 10px;
+}
+
+.select-file-button {
+    padding: 10px 20px;
+    background-color: rgb(226, 226, 226);
+    color: black;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.file-input+label:hover {
+    background-color: gainsboro;
+    /* ホバー時の背景色 */
 }
 
 /* 商品情報 */
@@ -66,7 +88,7 @@ input[type="number"],
 textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
@@ -99,6 +121,12 @@ textarea {
     width: 120px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);/* 影を追加 */
     transition: box-shadow 0.3s;
+}
+
+/*バリデーションメッセージ*/
+.error {
+    color: red;
+    font-size: 0.9em;
 }
 
 .btn.back {

@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query'); // 検索クエリを取得
-        $products = Product::where('name', 'LIKE', '%' . $query . '%')->get(); // 商品を検索
+        $products = Product::where('name', 'LIKE', '%' . $query . '%')->paginate(6);
 
         return view('products.show', compact('products')); // 検索結果をビューに渡す
     }
@@ -88,12 +88,14 @@ class ProductController extends Controller
         // 画像の保存
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('fruits-img', 'public');
-            $product->image = $path;
+            $product->image = basename($path);
         }
 
         $product->save();
 
-        return redirect('/products/' . $id)->with('success', '商品が更新されました。');
+        return redirect('/products/' . $id)
+        ->with('success', '商品が更新されました。')
+        ->with('file_name', $product->image);
     }
 
     public function destroy($id)
