@@ -59,8 +59,8 @@ body {
     border: 1px solid black;
 }
 
-.file-input+label:hover {
-    background-color: gainsboro;
+.select-file-button:hover {
+    background-color: rgb(250, 248, 248);
     /* ホバー時の背景色 */
 }
 

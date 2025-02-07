@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query'); // 検索クエリを取得
-        $products = Product::where('name', 'LIKE', '%' . $query . '%')->paginate(6);
+        $products = Product::where('name', 'LIKE', '%' . $query . '%')->aginate(6);
 
         return view('products.show', compact('products')); // 検索結果をビューに渡す
     }

@@ -8,7 +8,7 @@
 @section('content')
 
 <div class="product-container">
-    <h1>{{ $product->name }}の商品詳細</h1>
+    <h1>"{{ $product->name }}"の商品詳細</h1>
     @include('layouts.search')
 
     <div class="product-card" onclick="location.href='/products/{{ $product->id }}'">
