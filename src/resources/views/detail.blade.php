@@ -61,12 +61,14 @@
                 <div class="error">{{ $message }}</div>
             @enderror
 
-            <div class="button-group">
-                <button class="btn back" onclick="history.back()">戻る</button>
-                <button class="btn save">変更を保存</button>
-                <button type="button" class="btn delete" onclick="confirmDelete()">
-                    <i class="fas fa-trash"></i>
-                </button>
+            <div class="button-content">
+                <a href="/products" class="back">戻る</a>
+                    <button type="submit" class="button-change">変更を保存</button>
+                    <div class="trash-can-content">
+                        <a href="/products/{{$product->id}}/delete">
+                            <img src="{{ asset('/images/trash-can.png') }}"  alt="ゴミ箱の画像" class="img-trash-can"/>
+                        </a>
+                    </div>
             </div>
         </div>
     </div>

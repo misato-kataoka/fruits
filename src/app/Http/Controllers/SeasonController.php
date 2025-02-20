@@ -11,6 +11,6 @@ class SeasonController extends Controller
     {
         $seasons = Season::all();
 
-        return view('season', compact('seasons'));
+        return view('products.register', compact('seasons'));
     }
 }

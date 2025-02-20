@@ -104,13 +104,14 @@ textarea {
     margin-bottom: 15px;
 }
 
-/* ボタングループ */
+/* ボタングループ 
 .button-group {
     display: flex;
     justify-content: center;
 }
+*/
 
-/* ボタン */
+/* ボタン
 .btn {
     padding: 10px 20px;
     border: none;
@@ -119,9 +120,10 @@ textarea {
     font-size: 16px;
     margin: 0 5px;
     width: 120px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);/* 影を追加 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s;
 }
+*/
 
 /*バリデーションメッセージ*/
 .error {
@@ -129,24 +131,59 @@ textarea {
     font-size: 0.9em;
 }
 
+/*
 .btn.back {
     background-color: #f0f0f0;
     color: black;
 }
 
-.btn.save {
+.btn-change {
     background-color: #ffc107;
-    /* 黄色 */
     color: black;
 }
 
-.btn.delete {
+.btn-delete {
     background-color: #dc3545;
-    /* 赤 */
     color: #fff;
 }
+*/
 
-.btn:hover {
+.button:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     opacity: 0.9;
+}
+
+.back {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    color: black;
+    background-color: rgb(214, 214, 214);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 4px 4px rgb(224, 224, 224);
+    padding-top: 8px;
+    margin-left: 170px;
+}
+
+.button-change {
+    width: 200px;
+    height: 40px;
+    border: none;
+    background-color: gold;
+    border-radius: 5px;
+    box-shadow: 4px 4px rgb(224, 224, 224);
+}
+
+.trash-can-content {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 150px;
+}
+
+.img-trash-can {
+    width: 25px;
+    height: 25px;
 }
