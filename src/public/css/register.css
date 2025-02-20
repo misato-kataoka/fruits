@@ -58,6 +58,10 @@ label {
     height: 200px;
 }
 
+.input_error_message {
+    color: red;
+}
+
 .button-group {
     display: flex;
     justify-content: space-between;
