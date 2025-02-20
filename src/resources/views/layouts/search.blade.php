@@ -3,7 +3,7 @@
 <div class="search-container">
     <div class="sidebar">
         <div class="search-bar">
-            <form method="GET" action="/products/search">
+            <form method="POST" action="/search">
                 <input type="text" name="query" placeholder="商品名で検索" value="{{ request('query') }}">
                 <button type="submit" class="search-btn">検索</button>
             </form>

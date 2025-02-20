@@ -42,7 +42,7 @@ class ProductRequest extends FormRequest
             'season.required' => '季節を選択してください',
             'description.required' => '商品説明を入力してください',
             'description.max' => '120文字以下で入力してください',
-            'image.image ' => '商品画像を登録してください',
+            'image.image' => '商品画像を登録してください',
             'image.mimes' => '「.png」または「.jpeg」形式でアップロードしてください',
         ];
     }

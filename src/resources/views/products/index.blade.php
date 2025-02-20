@@ -11,7 +11,7 @@
     <h1>商品一覧</h1>
 
     <div class="add-product">
-            <a href="{{ url('/products/register') }}" class="create-btn">+ 商品を追加</a>
+            <a href="{{ url('products/register') }}" class="create-btn">+ 商品を追加</a>
     </div>
 
     <div class="content">

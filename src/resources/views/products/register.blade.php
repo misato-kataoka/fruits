@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('css/common.css')}}">
 <link rel="stylesheet" href="{{ asset('css/register.css')}}">
 @endsection
 
 @section('content')
-<main>
+
     <div class="container">
         <h2 class="title">商品登録</h2>
         <form action="/products" method="post" enctype="multipart/form-data">
@@ -14,14 +15,32 @@
                 <label for="name">商品名 <span class="required">必須</span></label>
                 <input type="text" id="name" name="name" class="form-control" placeholder="商品名を入力" value="{{ old('name') }}" required />
             </div>
+            <div class="form__error">
+                @error('name')
+                {{ $message }}
+                @enderror
+            </div>
+
             <div class="form-group">
                 <label for="price">値段 <span class="required">必須</span></label>
-                <input type="number" id="price" name="price" class="form-control" placeholder="値段を入力" value="{{ old('price') }}" required />
+                <input type="text" id="price" name="price" class="form-control" placeholder="値段を入力" value="{{ old('price') }}" required />
             </div>
+            <div class="form__error">
+                @error('price')
+                {{ $message }}
+                @enderror
+            </div>
+
             <div class="form-group">
                 <label for="image">商品画像 <span class="required">必須</span></label>
                 <input type="file" id="image" name="image" class="form-control" required />
             </div>
+            <div class="form__error">
+                @error('image')
+                {{ $message }}
+                @enderror
+            </div>
+
             <div class="form-group">
                 <label>季節 <span class="required">必須（複数選択可）</span></label>
                 <div class="checkbox-group">
@@ -31,15 +50,27 @@
                     <label><input type="checkbox" name="season[]" value="冬"> 冬</label>
                 </div>
             </div>
+            <div class="form__error">
+                @error('season')
+                {{ $message }}
+                @enderror
+            </div>
+
             <div class="form-group">
                 <label for="description">商品説明 <span class="required">必須</span></label>
                 <textarea id="description" name="description" class="form-control" rows="4" placeholder="商品の説明を入力" required>{{ old('description') }}</textarea>
             </div>
+            <div class="form__error">
+                @error('description')
+                {{ $message }}
+                @enderror
+            </div>
+
             <div class="button-group">
                 <a href="{{ url()->previous() }}" class="btn btn-secondary">戻る</a>
                 <button type="submit" class="btn btn-primary">登録</button>
             </div>
         </form>
     </div>
-</main>
+
 @endsection
