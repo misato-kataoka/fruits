@@ -44,7 +44,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::with('seasons')->findOrFail($id);
-        return view('detail', compact('product'));
+        $seasons = $product->seasons;
+        return view('detail', compact('product', 'seasons'));
     }
 
     public function create(Request $request)

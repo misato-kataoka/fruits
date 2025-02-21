@@ -28,14 +28,14 @@
 
         <div class="product-info">
             <label for="product-name">商品名</label>
-            <input type="text" id="product-name" name="name" value="{{ $product->name }}">
+            <input type="text" id="product-name" name="name" placeholder="{{ $product->name }}">
 
             @error('name')
                 <div class="error">{{ $message }}</div>
             @enderror
 
             <label for="price">値段</label>
-            <input type="number" id="price" name="price" value="{{ $product->price }}">
+            <input type="text" id="price" name="price" placeholder="{{ $product->price }}">
 
             @error('price')
                 <div class="error">{{ $message }}</div>
@@ -43,15 +43,14 @@
 
             <label>季節</label>
             <div class="season-options">
-                @foreach($product->seasons as $season)
-                    <label>
-                        <input type="radio" name="season" value="{{ $season->name}}" {{ $product->season === $season->name ? 'checked' : '' }}> {{ $season->name }}
-                    </label>
-
+                @foreach ($seasons as $season)
+                    <label for="season">{{$season->name}}</label>
+                    @if($product->checkSeason($season,$product) == "no")
+                        <input type="checkbox" id="season" value="{{$season->id}}">
+                    @elseif($product->checkSeason($season,$product) == "yes")
+                        <input type="checkbox" id="season" value="{{$season->id}}" checked>
+                    @endif
                 @endforeach
-                @error('season')
-                    <div class="error">{{ $message }}</div>
-                @enderror
             </div>
 
             <label for="description">商品説明</label>
