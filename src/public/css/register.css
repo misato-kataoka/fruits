@@ -34,6 +34,11 @@ label {
     padding: 2px 5px;
 }
 
+.note {
+    font-size: 0.9em;
+    color: red;
+}
+
 .form-group input[type="file"]{
     display: flex;
     justify-content: flex-start;
@@ -60,6 +65,21 @@ label {
 
 .input_error_message {
     color: red;
+}
+
+.season-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-item {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 5px;
 }
 
 .button-group {
