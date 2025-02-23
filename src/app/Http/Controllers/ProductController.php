@@ -62,6 +62,7 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
+        try {
         // 商品登録
         $product = new Product();
         $product->name = $request->name;
@@ -82,6 +83,9 @@ class ProductController extends Controller
         }
 
         return redirect('/products')->with('success', '商品が登録されました。');
+    } catch (\Exception $e) {
+        return redirect('/products')->with('error', '商品登録中にエラーが発生しました。');
+        }
     }
 
     public function checkSeason($seasonId) {

@@ -8,6 +8,17 @@
 @section('content')
 
 <div class="container">
+        @if (session('success'))
+            <div class="alert alert-success text-green-600 text-lg font-bold">
+            {{ session('success') }}
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-danger text-red-600 text-lg font-bold">
+            {{ session('error') }}
+            </div>
+        @endif
+
     <h1>商品一覧</h1>
 
     <div class="add-product">
