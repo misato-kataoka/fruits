@@ -30,7 +30,7 @@
 
         <div class="product-container">
             @foreach($products as $product)
-            <div class="product-card" onclick="location.href='/products/{{ $product->id }}'">
+            <div class="product-card" onclick="location.href='{{ url('products/' . $product->id . '/detail') }}'">
                 <img src="{{ asset('storage/fruits-img/' . $product->image) }}" alt="{{ $product->name }}">
                 <div class="product-info">
                     <label class="product-name">{{ $product->name }}</label>

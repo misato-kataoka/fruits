@@ -49,6 +49,13 @@ class ProductController extends Controller
         return view('products.show', compact('product', 'seasons'));
     }
 
+    public function showDetail($productId)
+    {
+        $product = Product::with('seasons')->findOrFail($productId);
+        $seasons = $product->seasons;
+        return view('detail', compact('product', 'seasons'));
+    }
+
     public function create(Request $request)
     {
         if ($request->has('back')) {

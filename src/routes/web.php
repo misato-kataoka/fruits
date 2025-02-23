@@ -24,6 +24,7 @@ Route::post('/products', [ProductController::class, 'store']);
 Route::put('/products/{productId}/update', [ProductController::class, 'update']);
 //商品詳細を表示
 Route::get('/products/{productId}', [ProductController::class, 'show']);
+Route::get('/products/{productId}/detail', [ProductController::class, 'showDetail']);
 //商品検索処理
 Route::get('/search', [ProductController::class, 'search']);
 Route::post('/search', [ProductController::class, 'search']);
