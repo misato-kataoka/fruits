@@ -8,16 +8,20 @@
 @section('content')
 
 <div class="product-container">
-    <h1>"{{ $product->name }}"の商品詳細</h1>
-    @include('layouts.search')
+    @if($product)
+        <h1>"{{ $product->name }}"の商品詳細</h1>
+        @include('layouts.search')
 
-    <div class="product-card" onclick="location.href='/products/{{ $product->id }}'">
-        <img src="{{ asset('storage/fruits-img/' . $product->image) }}" alt="{{ $product->name }}">
-        <div class="product-info">
-            <label class="product-name">{{ $product->name }}</label>
-            <label class="product-price">¥{{ number_format($product->price) }}</label>
+        <div class="product-card" onclick="location.href='/products/{{ $product->id }}'">
+            <img src="{{ asset('storage/fruits-img/' . $product->image) }}" alt="{{ $product->name }}">
+            <div class="product-info">
+                <label class="product-name">{{ $product->name }}</label>
+                <label class="product-price">¥{{ number_format($product->price) }}</label>
+            </div>
         </div>
-    </div>
+    @else
+        <h1>製品が見つかりませんでした。</h1>
+    @endif
 </div>
 
 @endsection

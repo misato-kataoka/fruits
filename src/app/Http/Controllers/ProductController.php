@@ -39,14 +39,14 @@ class ProductController extends Controller
         $query = $request->input('query'); // 検索クエリを取得
         $products = Product::where('name', 'LIKE', '%' . $query . '%')->paginate(6);
 
-        return view('products.show', compact('products')); // 検索結果をビューに渡す
+        return view('products.index', compact('products')); // 検索結果をビューに渡す
     }
 
-    public function show($id)
+    public function show($productId)
     {
-        $product = Product::with('seasons')->findOrFail($id);
+        $product = Product::with('seasons')->findOrFail($productId);
         $seasons = $product->seasons;
-        return view('detail', compact('product', 'seasons'));
+        return view('products.show', compact('product', 'seasons'));
     }
 
     public function create(Request $request)

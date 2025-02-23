@@ -4,6 +4,7 @@
     <div class="sidebar">
         <div class="search-bar">
             <form method="POST" action="/search">
+                @csrf
                 <input type="text" name="query" placeholder="商品名で検索" value="{{ request('query') }}">
                 <button type="submit" class="search-btn">検索</button>
             </form>
