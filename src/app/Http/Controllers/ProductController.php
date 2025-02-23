@@ -53,7 +53,10 @@ class ProductController extends Controller
         if ($request->has('back')) {
             return redirect('/products');
         }
-        return view('products.register');
+
+        $seasons = Season::all();
+
+        return view('products.register', compact('seasons'));
 
     }
 
@@ -103,7 +106,8 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
+        $message = "製品の削除が完了しました。";
 
-        return redirect('/products')->with('success', '商品が削除されました。');
+        return redirect('/products')->with(compact('products', 'message'));
     }
 }

@@ -50,15 +50,15 @@
             <div class="form-group">
                 <label>季節 <span class="required">必須</span><span class="note">複数選択可</span></label>
                 @foreach ($seasons as $season)
-                    <input type="checkbox" id="season" value="{{$season->id}}" name="season">
-                    <label for="season">{{$season->name}}</label>
+                    <input type="checkbox" id="season_{{ $season->id }}" value="{{$season->id}}" name="season[]">
+                    <label for="season_{{ $season->id }}">{{$season->name}}</label>
                 @endforeach
                 @error('season')
                     <span class="input_error">
-                    @foreach ($errors->get('season') as $message)
-                        <p class="input_error_message">{{ $message }}</p>
-                    @endforeach
-                </span>
+                        @foreach ($errors->get('season') as $message)
+                            <p class="input_error_message">{{ $message }}</p>
+                        @endforeach
+                    </span>
                 @enderror
             </div>
 
