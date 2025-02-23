@@ -3,8 +3,7 @@
 <div class="search-container">
     <div class="sidebar">
         <div class="search-bar">
-            <form method="POST" action="/search">
-                @csrf
+            <form method="GET" action="/products">
                 <input type="text" name="query" placeholder="商品名で検索" value="{{ request('query') }}">
                 <button type="submit" class="search-btn">検索</button>
             </form>
@@ -18,6 +17,7 @@
                     <option value="price_asc" {{ request('sort') === 'price_asc' ? 'selected' : '' }}>低い順に表示</option>
                     <option value="price_desc" {{ request('sort') === 'price_desc' ? 'selected' : '' }}>高い順に表示</option>
                 </select>
+                <input type="hidden" name="query" value="{{ request('query') }}">
             </form>
         </div>
     </div>

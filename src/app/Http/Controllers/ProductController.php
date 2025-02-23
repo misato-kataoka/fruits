@@ -16,15 +16,15 @@ class ProductController extends Controller
         $query = Product::query();
 
         // 商品検索機能
-        if ($request->filled('search')) {
-            $query->where('name', 'like', '%' . $request->search . '%');
+        if ($request->filled('query')) {
+            $query->where('name', 'like', '%' . $request->input('query') . '%');
         }
 
         // 商品並び替え機能
         if ($request->filled('sort')) {
-            if ($request->sort == 'price_asc') {
+            if ($request->input('sort') == 'price_asc') {
                 $query->orderBy('price', 'asc');
-            } elseif ($request->sort == 'price_desc') {
+            } elseif ($request->input('sort') == 'price_desc') {
                 $query->orderBy('price', 'desc');
             }
         }
