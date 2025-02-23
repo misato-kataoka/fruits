@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Season;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Date;
 
 class ProductController extends Controller
@@ -98,7 +99,6 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->name = $request->name;
         $product->price = $request->price;
-        $product->season = $request->season;
         $product->description = $request->description;
 
         // 画像の保存
@@ -109,17 +109,29 @@ class ProductController extends Controller
 
         $product->save();
 
+         // 季節の更新
+        if ($request->season) {
+            $product->seasons()->sync($request->season); // 季節を更新
+        }
+
         return redirect('/products' . $id)
         ->with('success', '商品が更新されました。')
         ->with('file_name', $product->image);
     }
 
-    public function destroy($id)
+    public function destroy($productId)
     {
-        $product = Product::findOrFail($id);
+    try {
+        $product = Product::findOrFail($productId);
         $product->delete();
         $message = "製品の削除が完了しました。";
 
-        return redirect('/products')->with(compact('products', 'message'));
+        return redirect('/products')->with('success', $message);
+    } catch (\Exception $e) {
+        // エラーメッセージをログに記録
+        Log::error('製品削除中にエラーが発生しました: ' . $e->getMessage());
+
+        return redirect('/products')->with('error', '製品の削除中にエラーが発生しました。');
+        }
     }
 }

@@ -62,12 +62,20 @@
 
             <div class="button-content">
                 <a href="/products" class="back">戻る</a>
+                <form action="{{ url('/products/' . $product->id . '/update') }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('PUT')
                     <button type="submit" class="button-change">変更を保存</button>
-                    <div class="trash-can-content">
-                        <a href="/products/{{$product->id}}/delete">
-                            <img src="{{ asset('/images/trash-can.png') }}"  alt="ゴミ箱の画像" class="img-trash-can"/>
-                        </a>
-                    </div>
+                </form>
+                <div class="trash-can-content">
+                    <form action="{{ url('/products/' . $product->id . '/delete') }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('本当に削除しますか？');" class="delete-button">
+                                <img src="{{ asset('/images/trash-can.png') }}" alt="ゴミ箱の画像" class="img-trash-can"/>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
