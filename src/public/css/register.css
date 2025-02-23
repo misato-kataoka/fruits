@@ -73,8 +73,7 @@ label {
 }
 
 .checkbox-item input[type="checkbox"] {
-    display: none;
-    /*デフォルトのチェックボックスを非表示にする*/
+    display: none; /*デフォルトのチェックボックスを非表示にする*/
 }
 
 .checkbox-item label{
@@ -92,7 +91,7 @@ label {
     transform: translateY(-50%);
     width: 20px; /* 丸のサイズ */
     height: 20px; /* 丸のサイズ */
-    border: 2px solid #ccc; /* 丸の枠線 */
+    border: 2px solid rgb(108, 107, 107); /* 丸の枠線 */
     border-radius: 50%; /* 丸くする */
     background: white; /* 背景色 */
 }
@@ -103,15 +102,13 @@ label {
 }
 
 .checkbox-item input[type="checkbox"]:checked+label::after {
-    content: '';
+    content: '✔';
     position: absolute;
-    left: 6px; /* 丸の中のチェックマークの位置 */
+    left: 4px; /* 丸の中のチェックマークの位置 */
     top: 50%;
     transform: translateY(-50%);
-    width: 8px; /* チェックマークのサイズ */
-    height: 8px; /* チェックマークのサイズ */
-    background: white; /* チェックマークの色 */
-    border-radius: 50%; /* チェックマークを丸くする */
+    font-size: 14px;
+    color: white; /* チェックマークの色 */
 }
 
 .button-group {
