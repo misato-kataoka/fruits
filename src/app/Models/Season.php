@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Season extends Model
 {
-    protected $fillable = ['name']; // 必要なカラムを指定
+    /*protected $fillable = ['name']; // 必要なカラムを指定*/
+    use HasFactory;
 
     public function products()
     {

@@ -9,7 +9,7 @@
 
     <div class="container">
         <h2 class="title">商品登録</h2>
-        <form action="/products/{productId}/update" method="post" enctype="multipart/form-data">
+        <form action="/products" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">商品名 <span class="required">必須</span></label>
@@ -53,7 +53,7 @@
                     @foreach ($seasons as $season)
                         <div class="checkbox-item">
                             <input type="checkbox" id="season_{{ $season->id }}" value="{{$season->id}}" name="season[]">
-                            <label for="season_{{ $season->id }}">{{$season->name}}</label>
+                            <label for="season_{{ $season->id }}">{{ $season->name}}</label>
                         </div>
                     @endforeach
                 </div>

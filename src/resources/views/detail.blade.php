@@ -45,10 +45,10 @@
             <div class="season-options">
                 @foreach ($seasons as $season)
                     <label for="season">{{$season->name}}</label>
-                    @if($product->checkSeason($season,$product) == "no")
-                        <input type="checkbox" id="season" value="{{$season->id}}">
-                    @elseif($product->checkSeason($season,$product) == "yes")
-                        <input type="checkbox" id="season" value="{{$season->id}}" checked>
+                    @if($product->checkSeason($season->id) == false)
+                        <input type="checkbox" id="season_{{$season->id}}" value="{{$season->id}}">
+                    @elseif($product->checkSeason($season->id) == true)
+                        <input type="checkbox" id="season_{{$season->id}}" value="{{$season->id}}" checked>
                     @endif
                 @endforeach
             </div>

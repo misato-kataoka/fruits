@@ -66,7 +66,6 @@ class ProductController extends Controller
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
-        $product->season =  implode(',', $request->season);
         $product->description = $request->description;
 
         // 画像の保存
@@ -77,7 +76,16 @@ class ProductController extends Controller
 
         $product->save();
 
+        // 季節の選択肢を中間テーブルに保存
+        if ($request->season) {
+            $product->seasons()->attach($request->season); // 選択された季節のIDを中間テーブルに保存
+        }
+
         return redirect('/products')->with('success', '商品が登録されました。');
+    }
+
+    public function checkSeason($seasonId) {
+        return $this->seasons()->where('season_id', $seasonId)->exists();
     }
 
     public function update(ProductRequest $request, $id)
