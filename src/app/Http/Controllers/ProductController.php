@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         $products = $query->paginate(6); // 6件ずつ表示
 
-        return view('products.index', compact('products'));
+        return view('products.index', compact('products', 'request'));
     }
 
     public function search(Request $request)

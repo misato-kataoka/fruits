@@ -45,13 +45,13 @@
     </div>
 
     <div class="pagination">
-        <button class="prev" {{ $products->onFirstPage() ? 'disabled' : '' }} onclick="location.href='{{ $products->previousPageUrl() }}'">&lt;</button>
+        <button class="prev" {{ $products->onFirstPage() ? 'disabled' : '' }} onclick="location.href='{{ $products->previousPageUrl() }}{{ request()->getQueryString() ? '&' . request()->getQueryString() : '' }}'">&lt;</button>
         @foreach (range(1, $products->lastPage()) as $i)
-        <button class="{{ $i === $products->currentPage() ? 'active' : '' }}" onclick="location.href='{{ $products->url($i) }}'">
+        <button class="{{ $i === $products->currentPage() ? 'active' : '' }}" onclick="location.href='{{ $products->url($i) }}{{ request()->getQueryString() ? '&' . request()->getQueryString() : '' }}'">
             {{ $i }}
         </button>
         @endforeach
-        <button class="next" {{ !$products->hasMorePages() ? 'disabled' : '' }} onclick="location.href='{{ $products->nextPageUrl() }}'">&gt;</button>
+        <button class="next" {{ !$products->hasMorePages() ? 'disabled' : '' }} onclick="location.href='{{ $products->nextPageUrl() }}{{ request()->getQueryString() ? '&' . request()->getQueryString() : '' }}'">&gt;</button>
     </div>
 </div>
 
