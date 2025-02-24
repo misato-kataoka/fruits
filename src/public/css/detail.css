@@ -77,9 +77,58 @@ label {
     font-size: 18px;
 }
 
-input[type="radio"] {
-    display: inline-block;/* ラジオボタンを表示 */
-    margin-bottom: 20px;
+.season-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-item input[type="checkbox"] {
+    display: none;
+    /*デフォルトのチェックボックスを非表示にする*/
+}
+
+.checkbox-item label {
+    position: relative;
+    padding-left: 25px;
+    padding-right: 50px;
+    cursor: pointer;
+}
+
+.checkbox-item label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    /* 丸のサイズ */
+    height: 20px;
+    /* 丸のサイズ */
+    border: 2px solid rgb(108, 107, 107);
+    /* 丸の枠線 */
+    border-radius: 50%;
+    /* 丸くする */
+    background: white;
+    /* 背景色 */
+}
+
+.checkbox-item input[type="checkbox"]:checked+label::before {
+    background: rgb(108, 107, 107);
+    /* チェックされたときの背景色 */
+    border-color: rgb(108, 107, 107);
+    /* チェックされたときの枠線の色 */
+}
+
+.checkbox-item input[type="checkbox"]:checked+label::after {
+    content: '✔';
+    position: absolute;
+    left: 4px;
+    /* 丸の中のチェックマークの位置 */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: white;
+    /* チェックマークの色 */
 }
 
 /* 入力フィールド */

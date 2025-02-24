@@ -42,7 +42,7 @@
             @enderror
 
             <label>季節</label>
-            <div class="season-options">
+            <div class="season-checkboxes">
                 @foreach ($seasons as $season)
                     <label for="season">{{$season->name}}</label>
                     @if($product->checkSeason($season->id) == false)
