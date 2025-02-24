@@ -89,7 +89,31 @@ body {
     border-radius: 5px;
 }
 
+.sort_contents {
+    display: flex;
+    width: 150px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: rgb(255, 200, 0) solid;
+}
 
+.searched_data {
+    margin-left: 10px;
+    margin-top: 7px;
+}
+
+.close-content {
+    width: 20px;
+    height: 20px;
+}
+
+.img-close-icon {
+    margin-left: 10px;
+    margin-top: 8px;
+    width: 20px;
+    height: 20px;
+}
 
 
 /*body {

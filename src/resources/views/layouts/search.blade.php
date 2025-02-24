@@ -19,6 +19,16 @@
                 </select>
                 <input type="hidden" name="query" value="{{ request('query') }}">
             </form>
+            @if(@isset($sort)&& $sort != "")
+                <div class="sort_contents">
+                    <p class="searched_data">{{$sort}}</p>
+                    <div class="close-content">
+                        <a href="/products">
+                            <img src="{{ asset('/images/close-icon.png') }}"  alt="閉じるアイコン" class="img-close-icon"/>
+                        </a>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </div>
