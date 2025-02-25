@@ -13,7 +13,7 @@
             @csrf
             <div class="form-group">
                 <label for="name">商品名 <span class="required">必須</span></label>
-                <input type="text" id="name" name="name" class="form-control" placeholder="商品名を入力" value="{{ old('name') }}" required />
+                <input type="text" id="name" name="name" class="form-control" placeholder="商品名を入力" value="{{ old('name') }}"/>
             @error('name')
                 <span class="input_error">
                     @foreach ($errors->get('name') as $message)
@@ -25,7 +25,7 @@
 
             <div class="form-group">
                 <label for="price">値段 <span class="required">必須</span></label>
-                <input type="text" id="price" name="price" class="form-control" placeholder="値段を入力" value="{{ old('price') }}" required />
+                <input type="text" id="price" name="price" class="form-control" placeholder="値段を入力" value="{{ old('price') }}"/>
             @error('price')
                 <span class="input_error">
                     @foreach ($errors->get('price') as $message)
@@ -37,7 +37,7 @@
 
             <div class="form-group">
                 <label for="image">商品画像 <span class="required">必須</span></label>
-                <input type="file" id="image" name="image" class="form-control" required />
+                <input type="file" id="image" name="image" class="form-control"/>
             @error('image')
                 <span class="input_error">
                     @foreach ($errors->get('image') as $message)
@@ -68,7 +68,7 @@
 
             <div class="form-group">
                 <label for="description">商品説明 <span class="required">必須</span></label>
-                <textarea id="description" name="description" class="form-control" rows="4" placeholder="商品の説明を入力" required>{{ old('description') }}</textarea>
+                <textarea id="description" name="description" class="form-control" rows="4" placeholder="商品の説明を入力">{{ old('description') }}</textarea>
             @error('description')
                 <span class="input_error">
                     @foreach ($errors->get('description') as $message)
